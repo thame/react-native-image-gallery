@@ -188,7 +188,7 @@ export default class TransformableImage extends PureComponent {
               contentAspectRatio={contentAspectRatio}
               onLayout={this.onLayout}
               style={style}>
-                { error ? this.renderError() : content }
+                { content }
             </ViewTransformer>
         );
     }
