@@ -178,7 +178,7 @@ export default class TransformableImage extends PureComponent {
             <ViewTransformer
               ref={'viewTransformer'}
               key={'viewTransformer#' + keyAccumulator} // when image source changes, we should use a different node to avoid reusing previous transform state
-              enableTransform={enableTransform && imageLoaded} // disable transform until image is loaded
+              enableTransform={enableTransform} // disable transform until image is loaded
               enableScale={enableScale}
               enableTranslate={enableTranslate}
               enableResistance={true}
