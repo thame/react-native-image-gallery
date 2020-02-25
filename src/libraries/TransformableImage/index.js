@@ -20,6 +20,7 @@ export default class TransformableImage extends PureComponent {
         enableTranslate: PropTypes.bool,
         onTransformGestureReleased: PropTypes.func,
         onViewTransformed: PropTypes.func,
+        onTransformStart: PropTypes.func,
         imageComponent: PropTypes.func,
         resizeMode: PropTypes.string,
         errorComponent: PropTypes.func
@@ -184,6 +185,7 @@ export default class TransformableImage extends PureComponent {
               enableResistance={true}
               onTransformGestureReleased={onTransformGestureReleased}
               onViewTransformed={onViewTransformed}
+							onTransformStart={onTransformStart}
               maxScale={maxScale}
               contentAspectRatio={contentAspectRatio}
               onLayout={this.onLayout}
