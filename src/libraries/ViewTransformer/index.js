@@ -22,7 +22,8 @@ export default class ViewTransformer extends React.Component {
         onSingleTapConfirmed: PropTypes.func,
         onLayout: PropTypes.func,
         onTransformStart: PropTypes.func,
-        children: PropTypes.node
+        children: PropTypes.node,
+				pageId: PropTypes.number
     };
 
     static defaultProps = {
@@ -115,7 +116,8 @@ export default class ViewTransformer extends React.Component {
         this.props.onViewTransformed && this.props.onViewTransformed({
             scale: this.state.scale,
             translateX: this.state.translateX,
-            translateY: this.state.translateY
+            translateY: this.state.translateY,
+						pageId: this.props.pageId
         });
     }
 
@@ -224,7 +226,8 @@ export default class ViewTransformer extends React.Component {
         let handled = this.props.onTransformGestureReleased && this.props.onTransformGestureReleased({
             scale: this.state.scale,
             translateX: this.state.translateX,
-            translateY: this.state.translateY
+            translateY: this.state.translateY,
+						pageId: this.props.pageId
         });
         if (handled) {
             return;
