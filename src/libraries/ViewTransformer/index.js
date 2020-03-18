@@ -227,7 +227,8 @@ export default class ViewTransformer extends React.Component {
             scale: this.state.scale,
             translateX: this.state.translateX,
             translateY: this.state.translateY,
-						pageId: this.props.pageId
+						pageId: this.props.pageId,
+						gestureState: gestureState,
         });
         if (handled) {
             return;
