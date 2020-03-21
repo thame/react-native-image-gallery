@@ -27,6 +27,7 @@ export default class Gallery extends PureComponent {
         errorComponent: PropTypes.func,
         flatListProps: PropTypes.object,
 				maxScale: PropTypes.number,
+        onTransformStart: PropTypes.func,
     };
 
     static defaultProps = {
@@ -227,7 +228,7 @@ export default class Gallery extends PureComponent {
     }
 
     renderPage (pageData, pageId) {
-        const { onViewTransformed, onTransformGestureReleased, errorComponent, imageComponent, maxScale } = this.props;
+        const { onViewTransformed, onTransformStart, onTransformGestureReleased, errorComponent, imageComponent, maxScale } = this.props;
         return (
             <TransformableImage
               onViewTransformed={((transform) => {
@@ -236,6 +237,9 @@ export default class Gallery extends PureComponent {
               onTransformGestureReleased={((transform) => {
                   // need the 'return' here because the return value is checked in ViewTransformer
                   return onTransformGestureReleased && onTransformGestureReleased(transform, pageId);
+              })}
+              onTransformStart={((transform) => {
+                  return onTransformStart && onTransformStart(transform, pageId);
               })}
               ref={((ref) => { this.imageRefs.set(pageId, ref); })}
               key={'innerImage#' + pageId}

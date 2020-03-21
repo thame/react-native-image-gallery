@@ -20,6 +20,7 @@ export default class TransformableImage extends PureComponent {
         enableTranslate: PropTypes.bool,
         onTransformGestureReleased: PropTypes.func,
         onViewTransformed: PropTypes.func,
+        onTransformStart: PropTypes.func,
         imageComponent: PropTypes.func,
         resizeMode: PropTypes.string,
         errorComponent: PropTypes.func,
@@ -145,7 +146,7 @@ export default class TransformableImage extends PureComponent {
 
     render () {
         const { imageDimensions, viewWidth, viewHeight, error, keyAccumulator, imageLoaded } = this.state;
-        const { style, image, imageComponent, resizeMode, enableTransform, enableScale, enableTranslate, onTransformGestureReleased, onViewTransformed, pageId, maxScale } = this.props;
+        const { style, image, imageComponent, resizeMode, enableTransform, enableScale, enableTranslate, onTransformGestureReleased, onViewTransformed, pageId, maxScale, onTransformStart } = this.props;
 
         let contentAspectRatio;
         let width, height; // imageDimensions
@@ -183,6 +184,7 @@ export default class TransformableImage extends PureComponent {
               enableResistance={true}
               onTransformGestureReleased={onTransformGestureReleased}
               onViewTransformed={onViewTransformed}
+              onTransformStart={onTransformStart}
               maxScale={maxScale}
 							pageId={pageId}
               contentAspectRatio={contentAspectRatio}
